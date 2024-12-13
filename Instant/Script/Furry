@@ -1,0 +1,34 @@
+GameName = "Clip It"
+
+tab1name = "Main"
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local GameName = Library:NewWindow(GameName)
+
+local Tab1 = GameName:NewSection(tab1name)
+
+Tab1:CreateButton("Instant", function(value)
+    local args = {
+        [1] = {
+            ["bulkPurchaseData"] = {
+                [1] = {
+                    ["creatorId"] = 9843936,
+                    ["assetId"] = 113409422471145,
+                    ["assetType"] = "HairAccessory",
+                    ["creatorType"] = "User"
+                }
+            }
+        }
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("PromptBulkPurchase"):InvokeServer(unpack(args))
+end)
+
+-- New section for Discord link
+local Tab2 = GameName:NewSection("Raizen")
+
+Tab2:CreateButton("Join our Discord", function()
+    setclipboard("https://discord.gg/tsMPXGku")
+    print("Discord link copied to clipboard!")
+end)
